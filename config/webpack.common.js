@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     entry: {
-        main: path.resolve(__dirname, "../src/index.js"),
+        main: ["@babel/polyfill", path.resolve(__dirname, "../src/index.js")],
     },
     module: {
         rules: [
@@ -32,5 +32,8 @@ module.exports = {
                 },
             },
         ],
+    },
+    devServer: {
+        historyApiFallback: true,
     },
 };
